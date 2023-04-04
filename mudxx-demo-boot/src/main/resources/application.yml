@@ -1,0 +1,12 @@
+server:
+  port: 9230
+spring:
+  application:
+    name: demo-boot
+  profiles:
+    include: redis,actuator
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://120.26.37.73:3306/mudxx-mall-learning?useUnicode=true&characterEncoding=utf-8
+    username: XvZzgilM3Ww=
+    password: LBjTqoCB3izDG8pQjQE2yQ==

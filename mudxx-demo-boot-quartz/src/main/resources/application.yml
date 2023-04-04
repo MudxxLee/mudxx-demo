@@ -1,0 +1,17 @@
+server:
+  port: 9232
+spring:
+  application:
+    name: boot-quartz
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    druid:
+      url: jdbc:mysql://120.26.37.73:3306/mudxx-mall-learning?useUnicode=true&characterEncoding=utf-8
+      username: root
+      password: alimysql123456
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      #druid 连接池配置
+      initial-size: 3
+      min-idle: 3
+      max-active: 10
+      max-wait: 60000

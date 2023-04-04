@@ -1,0 +1,11 @@
+# spring-boot-admin-client配置
+spring:
+  boot:
+    admin:
+      client:
+        url: http://localhost:9231
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
