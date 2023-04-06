@@ -15,3 +15,12 @@ spring:
       min-idle: 3
       max-active: 10
       max-wait: 60000
+  #Spirng Boot 1.5.4默认使用SpringPhysicalNamingStrategy ，会处理添加“-”，会将表、字段名转化为小写
+  jpa:
+    hibernate:
+      naming:
+        #PhysicalNamingStrategyStandardImpl：不做修改，直接映射
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+  #开启定时任务 true:启动 false:关闭
+  quartz:
+    auto-startup: false

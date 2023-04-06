@@ -2,6 +2,7 @@ package com.mudxx.demo.boot.quartz.database.config;
 
 import org.quartz.Scheduler;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.beans.factory.config.PropertiesFactoryBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -16,9 +17,11 @@ import java.io.IOException;
 @Configuration
 public class QuartzConfig {
 
+    @Value("${spring.quartz.auto-startup: true}")
+    private Boolean autoStartup;
+
     @Autowired
     private QuartzJobFactory jobFactory;
-
 
     @Bean
     public SchedulerFactoryBean schedulerFactoryBean() throws IOException {
@@ -39,6 +42,8 @@ public class QuartzConfig {
         factory.setOverwriteExistingJobs(false);
         //QuartzScheduler 延时启动，应用启动完后 QuartzScheduler 再启动
         factory.setStartupDelay(5);
+        //是否开启定时任务 true:启动 false:关闭
+        factory.setAutoStartup(autoStartup);
         return factory;
     }
 

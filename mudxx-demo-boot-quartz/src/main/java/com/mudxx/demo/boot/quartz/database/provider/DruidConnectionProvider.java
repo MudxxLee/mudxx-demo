@@ -51,7 +51,9 @@ public class DruidConnectionProvider implements ConnectionProvider {
 
     public static final int DEFAULT_DB_MAX_CACHED_STATEMENTS_PER_CONNECTION = 120;
 
-    //Druid连接池
+    /**
+     * Druid连接池
+     */
     private DruidDataSource datasource;
 
     @Override
@@ -60,7 +62,7 @@ public class DruidConnectionProvider implements ConnectionProvider {
     }
 
     @Override
-    public void shutdown() throws SQLException {
+    public void shutdown() {
         datasource.close();
     }
 
