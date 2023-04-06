@@ -14,6 +14,7 @@
         <module>mudxx-demo-boot</module>
         <module>mudxx-demo-boot-admin</module>
         <module>mudxx-demo-boot-quartz</module>
+        <module>mudxx-demo-boot-message</module>
     </modules>
 
     <parent>

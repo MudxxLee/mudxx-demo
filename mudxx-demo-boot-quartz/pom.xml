@@ -17,18 +17,6 @@
     </properties>
 
     <dependencies>
-        <!--Swagger2UI API文档生产工具-->
-        <dependency>
-            <groupId>io.springfox</groupId>
-            <artifactId>springfox-swagger2</artifactId>
-            <version>2.7.0</version>
-        </dependency>
-        <!-- Swagger2ui -->
-        <dependency>
-            <groupId>com.github.xiaoymin</groupId>
-            <artifactId>swagger-bootstrap-ui</artifactId>
-            <version>1.9.6</version>
-        </dependency>
         <!--quartz定时任务-->
         <dependency>
             <groupId>org.springframework.boot</groupId>

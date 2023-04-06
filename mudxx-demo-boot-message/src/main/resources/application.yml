@@ -1,0 +1,7 @@
+server:
+  port: 9233
+spring:
+  application:
+    name: boot-message
+  profiles:
+    include: mail
