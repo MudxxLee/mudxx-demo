@@ -1,7 +1,7 @@
 package com.mudxx.demo.boot.message.web.api;
 
-import com.mudxx.common.exceptiion.code.biz.BizErrorCode;
-import com.mudxx.common.exceptiion.code.biz.BizException;
+import com.mudxx.common.exception.code.biz.BizErrorCode;
+import com.mudxx.common.exception.code.biz.BizException;
 import com.mudxx.common.web.response.CommonResult;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mail.SimpleMailMessage;
