@@ -1,0 +1,10 @@
+server:
+  port: 9234
+spring:
+  application:
+    name: boot-generator
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://120.26.37.73:3306/mudxx-mall-learning?useUnicode=true&characterEncoding=utf-8
+    username: root
+    password: alimysql123456
