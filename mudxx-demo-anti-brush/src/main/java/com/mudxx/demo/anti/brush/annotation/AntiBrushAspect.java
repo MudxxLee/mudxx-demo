@@ -2,7 +2,7 @@ package com.mudxx.demo.anti.brush.annotation;
 
 
 import cn.hutool.core.util.StrUtil;
-import com.mudxx.common.exceptiion.code.biz.BizException;
+import com.mudxx.common.exception.code.biz.BizException;
 import com.mudxx.common.web.util.WebUtils;
 import com.mudxx.component.redis.StringRedisUtils;
 import org.aspectj.lang.ProceedingJoinPoint;

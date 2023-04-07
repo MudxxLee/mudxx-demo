@@ -1,4 +1,4 @@
-package com.mudxx.demo.admin;
+package com.mudxx.demo.boot.admin;
 
 import de.codecentric.boot.admin.server.config.EnableAdminServer;
 import org.springframework.boot.SpringApplication;

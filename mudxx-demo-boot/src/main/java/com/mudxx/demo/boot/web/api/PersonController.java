@@ -1,6 +1,6 @@
 package com.mudxx.demo.boot.web.api;
 
-import com.mudxx.common.exceptiion.code.biz.BizErrorCode;
+import com.mudxx.common.exception.code.biz.BizErrorCode;
 import com.mudxx.common.web.response.CommonPage;
 import com.mudxx.common.web.response.CommonResult;
 import com.mudxx.demo.boot.web.model.param.PersonForm;

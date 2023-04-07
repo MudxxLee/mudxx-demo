@@ -3,11 +3,17 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>com.mudxx</groupId>
+        <artifactId>mudxx-core</artifactId>
+        <version>0.0.1-SNAPSHOT</version>
+    </parent>
 
     <groupId>com.mudxx.demo</groupId>
     <artifactId>mudxx-demo</artifactId>
     <packaging>pom</packaging>
     <version>0.0.1-SNAPSHOT</version>
+
     <modules>
         <module>mudxx-demo-anti-brush</module>
         <module>mudxx-demo-mq-rocketmq</module>
@@ -15,13 +21,9 @@
         <module>mudxx-demo-boot-admin</module>
         <module>mudxx-demo-boot-quartz</module>
         <module>mudxx-demo-boot-message</module>
+        <module>mudxx-demo-boot-generator</module>
+        <module>mudxx-demo-boot-generator-plus</module>
     </modules>
-
-    <parent>
-        <groupId>com.mudxx</groupId>
-        <artifactId>mudxx-core</artifactId>
-        <version>0.0.1-SNAPSHOT</version>
-    </parent>
 
     <properties>
         <mudxx.core.version>0.0.1-SNAPSHOT</mudxx.core.version>
@@ -35,10 +37,6 @@
             <groupId>com.mudxx</groupId>
             <artifactId>mudxx-common-web</artifactId>
             <version>${mudxx.core.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
     </dependencies>
 
