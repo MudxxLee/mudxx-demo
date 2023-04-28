@@ -19,7 +19,7 @@
     <dependencies>
         <!--系统模块-->
         <dependency>
-            <groupId>com.mudxx</groupId>
+            <groupId>com.mudxx.component</groupId>
             <artifactId>mudxx-component-redis</artifactId>
             <version>${mudxx.core.version}</version>
         </dependency>

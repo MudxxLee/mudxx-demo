@@ -1,6 +1,6 @@
 package com.mudxx.demo.boot.quartz.database.service.impl;
 
-import com.mudxx.common.utils.BeanCopyUtils;
+import com.mudxx.common.utils.bean.BeanCopyUtils;
 import com.mudxx.common.web.response.CommonPage;
 import com.mudxx.demo.boot.quartz.database.dao.QrtzJobDetails;
 import com.mudxx.demo.boot.quartz.database.dao.mapper.QrtzJobDetailsRepository;

@@ -34,7 +34,7 @@
     <dependencies>
         <!--系统模块工程-->
         <dependency>
-            <groupId>com.mudxx</groupId>
+            <groupId>com.mudxx.common</groupId>
             <artifactId>mudxx-common-web</artifactId>
             <version>${mudxx.core.version}</version>
         </dependency>
