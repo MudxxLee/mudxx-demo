@@ -35,14 +35,14 @@ public class AntiBrushAspect {
      * 这里我们使用注解的形式
      * 当然，我们也可以通过切点表达式直接指定需要拦截的package,需要拦截的class 以及 method
      */
-    @Pointcut("@annotation(com.mudxx.demo.anti.brush.annotation.AntiBrush)")
+//    @Pointcut("@annotation(com.mudxx.demo.anti.brush.annotation.AntiBrush)")
     public void limitPointCut() {
     }
 
     /**
      * 环绕通知
      */
-    @Around("limitPointCut()")
+//    @Around("limitPointCut()")
     public Object around(ProceedingJoinPoint pjp) throws Throwable {
         // 获取被注解的方法
         MethodInvocationProceedingJoinPoint mjp = (MethodInvocationProceedingJoinPoint) pjp;

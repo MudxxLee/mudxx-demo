@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class TestController {
 
     @GetMapping("/test001")
-    @AntiBrush(partKey = "test001", count = 5, cycle = 10)
+    @AntiBrush(partKey = "test001", count = 5, cycle = 120)
     public CommonResult<?> test001() {
         return CommonResult.success("请求成功!");
     }
