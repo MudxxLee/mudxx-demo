@@ -1,4 +1,4 @@
-package com.mudxx.demo.boot.web.model.param;
+package com.mudxx.demo.boot.web.api.demo.param;
 
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;

@@ -1,11 +1,11 @@
-package com.mudxx.demo.boot.web.api;
+package com.mudxx.demo.boot.web.api.demo;
 
 import com.mudxx.common.exception.code.biz.BizErrorCode;
 import com.mudxx.common.web.response.CommonPage;
 import com.mudxx.common.web.response.CommonResult;
-import com.mudxx.demo.boot.web.model.param.PersonForm;
-import com.mudxx.demo.boot.web.model.param.PersonQuery;
-import com.mudxx.demo.boot.web.model.vo.PersonVo;
+import com.mudxx.demo.boot.web.api.demo.param.PersonForm;
+import com.mudxx.demo.boot.web.api.demo.param.PersonQuery;
+import com.mudxx.demo.boot.web.api.demo.vo.PersonVo;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiImplicitParams;

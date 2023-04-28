@@ -1,8 +1,8 @@
-package com.mudxx.demo.boot.web.api;
+package com.mudxx.demo.boot.web.api.demo;
 
 
 import com.mudxx.common.web.response.CommonResult;
-import com.mudxx.demo.boot.web.model.vo.UserVo;
+import com.mudxx.demo.boot.web.api.demo.vo.UserVo;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;

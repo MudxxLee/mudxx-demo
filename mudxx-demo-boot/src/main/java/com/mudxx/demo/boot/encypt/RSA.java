@@ -1,12 +1,12 @@
 package com.mudxx.demo.boot.encypt;
 
 import javax.crypto.Cipher;
-import java.nio.charset.StandardCharsets;
 import java.security.*;
 import java.security.interfaces.RSAPrivateKey;
 import java.security.interfaces.RSAPublicKey;
 import java.security.spec.PKCS8EncodedKeySpec;
 import java.security.spec.X509EncodedKeySpec;
+import java.util.Base64;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -143,10 +143,11 @@ public class RSA {
      * @param keyMap 密钥map
      * @return byte[] 私钥
      */
-    public static byte[] getPrivateKey(Map<String, Object> keyMap) {
+    public static String getPrivateKey(Map<String, Object> keyMap) {
+        String str = "";
         Key key = (Key) keyMap.get(PRIVATE_KEY);
-        return key.getEncoded();
-
+        str = encryptBase64(key.getEncoded());
+        return str;
     }
 
     /**
@@ -155,15 +156,42 @@ public class RSA {
      * @param keyMap 密钥map
      * @return byte[] 公钥
      */
-    public static byte[] getPublicKey(Map<String, Object> keyMap) throws Exception {
+    public static String getPublicKey(Map<String, Object> keyMap) {
+        String str = "";
         Key key = (Key) keyMap.get(PUBLIC_KEY);
-        return key.getEncoded();
+        str = encryptBase64(key.getEncoded());
+        return str;
+    }
+
+    /**
+     * BASE64 解码
+     *
+     * @param key 需要Base64解码的字符串
+     * @return 字节数组
+     */
+    public static byte[] decryptBase64(String key) {
+        return Base64.getDecoder().decode(key);
+    }
+
+    /**
+     * BASE64 编码
+     *
+     * @param key 需要Base64编码的字节数组
+     * @return 字符串
+     */
+    public static String encryptBase64(byte[] key) {
+        return new String(Base64.getEncoder().encode(key));
     }
 
     public static void main(String[] args) throws Exception {
         Map<String, Object> initKey = RSA.initKey();
-        System.out.println(new String(getPublicKey(initKey)));
-        System.out.println(new String(getPrivateKey(initKey)));
+        System.out.println("----------------公钥----------------");
+        System.out.println(getPublicKey(initKey));
+        System.out.println("----------------公钥----------------");
+        System.out.println();
+        System.out.println("----------------私钥----------------");
+        System.out.println(getPrivateKey(initKey));
+        System.out.println("----------------私钥----------------");
     }
 
 }
