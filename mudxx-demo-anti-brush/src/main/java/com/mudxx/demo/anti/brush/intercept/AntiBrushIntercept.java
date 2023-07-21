@@ -3,7 +3,7 @@ package com.mudxx.demo.anti.brush.intercept;
 import cn.hutool.core.util.StrUtil;
 import com.mudxx.common.exception.code.biz.BizException;
 import com.mudxx.common.web.util.WebUtils;
-import com.mudxx.component.redis.StringRedisUtils;
+import com.mudxx.component.redis.utils.StringRedisUtils;
 import com.mudxx.demo.anti.brush.annotation.AntiBrush;
 import com.mudxx.demo.anti.brush.annotation.AntiBrushConstants;
 import lombok.extern.slf4j.Slf4j;
