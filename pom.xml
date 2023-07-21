@@ -23,6 +23,8 @@
         <module>mudxx-demo-boot-message</module>
         <module>mudxx-demo-boot-generator</module>
         <module>mudxx-demo-boot-generator-plus</module>
+        <module>mudxx-demo-mq-rabbitmq</module>
+        <module>mudxx-demo-boot-redis</module>
     </modules>
 
     <properties>
