@@ -1,0 +1,7 @@
+server:
+  port: 9221
+spring:
+  application:
+    name: mudxx-demo-mq-rabbitmq
+  profiles:
+    include: rabbitmq

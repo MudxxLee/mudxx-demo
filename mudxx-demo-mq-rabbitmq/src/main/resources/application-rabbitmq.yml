@@ -1,0 +1,23 @@
+spring:
+  rabbitmq:
+    host: mq-dev.agilewingcdn-demo.com
+    port: 5672
+    virtual-host: /
+    username: appuser
+    password: 37UxMDvdPVfi4gTE9L
+    listener:
+      simple:
+        acknowledge-mode: manual
+        retry:
+          enabled: false
+#    rabbitmq:
+#      host: 192.168.40.5
+#      port: 5672
+#      virtual-host: /
+#      username: dev
+#      password: LeFkH79sOcfEpuvGZx
+#      listener:
+#        simple:
+#          acknowledge-mode: manual
+#          retry:
+#            enabled: false
