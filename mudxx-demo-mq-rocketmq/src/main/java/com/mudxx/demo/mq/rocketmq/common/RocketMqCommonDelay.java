@@ -12,7 +12,7 @@ public enum RocketMqCommonDelay {
      *
      */
     S1(1, "1s"),
-    S2(2, "5s"),
+    S5(2, "5s"),
     S10(3, "10s"),
     S30(4, "30s"),
     M1(5, "1m"),
