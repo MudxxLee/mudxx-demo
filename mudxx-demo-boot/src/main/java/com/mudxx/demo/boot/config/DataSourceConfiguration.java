@@ -13,7 +13,7 @@ import javax.sql.DataSource;
  * @author laiw
  * @date 2023/4/3 16:25
  */
-@Configuration
+//@Configuration
 public class DataSourceConfiguration {
 
     @Autowired

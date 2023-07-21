@@ -23,7 +23,7 @@ public class BizMessageIdempotentServiceImpl implements IBizMessageIdempotentSer
     private BizMessageIdempotentRepository bizMessageIdempotentRepository;
 
     @Override
-    @Cacheable(cacheNames = "message:findCache#60", key = "#msgUniqKey", unless = "#result == null")
+    @Cacheable(cacheNames = "message:findCache+60", key = "#msgUniqKey", unless = "#result == null")
     public BizMessageIdempotentBo findByMsgUniqKey(String msgUniqKey) {
         log.info("findByMsgUniqKey: {}", msgUniqKey);
         BizMessageIdempotent idempotent = bizMessageIdempotentRepository.findByMsgUniqKey(msgUniqKey);

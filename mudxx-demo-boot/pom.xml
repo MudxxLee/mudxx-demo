@@ -51,6 +51,18 @@
             <artifactId>spring-boot-admin-starter-client</artifactId>
             <version>2.3.0</version>
         </dependency>
+        <!--线程池模块-->
+        <dependency>
+            <groupId>cn.hippo4j</groupId>
+            <artifactId>hippo4j-spring-boot-starter</artifactId>
+            <version>1.5.0</version>
+        </dependency>
+        <!--org.apache.lucene工具类-->
+        <dependency>
+            <groupId>org.apache.lucene</groupId>
+            <artifactId>lucene-core</artifactId>
+            <version>4.0.0</version>
+        </dependency>
 
     </dependencies>
 

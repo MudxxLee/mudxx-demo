@@ -7,6 +7,7 @@ import org.springframework.data.redis.cache.RedisCacheManager;
 import org.springframework.data.redis.cache.RedisCacheWriter;
 
 import java.time.Duration;
+import java.util.Arrays;
 
 /**
  * @author laiw
@@ -35,6 +36,7 @@ public class CustomRedisCacheManager extends RedisCacheManager {
         //名称中存在#标记进行到期时间配置
         if (!name.isEmpty() && name.contains("#")) {
             String[] SPEL = name.split("#");
+            System.out.println("SPEL=" + Arrays.toString(SPEL));
             if (NumberUtil.isLong(SPEL[1])) {
                 //配置缓存到期时间
                 long cycle = Long.parseLong(SPEL[1]);

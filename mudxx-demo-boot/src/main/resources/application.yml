@@ -4,7 +4,7 @@ spring:
   application:
     name: demo-boot
   profiles:
-    include: redis,actuator,captcha
+    include: redis,actuator,captcha,hippo4j
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://120.26.37.73:3306/mudxx-mall-learning?useUnicode=true&characterEncoding=utf-8
