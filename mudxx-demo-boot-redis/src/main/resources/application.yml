@@ -1,0 +1,7 @@
+server:
+  port: 9235
+spring:
+  application:
+    name: demo-boot-redis
+  profiles:
+    include: redis, hippo4j
