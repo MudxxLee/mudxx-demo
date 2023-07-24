@@ -1,5 +1,6 @@
 package com.mudxx.demo.boot.redis.config;
 
+import com.mudxx.component.redis.lock.spring.StringRedisFcyHelper;
 import com.mudxx.component.redis.lock.spring.StringRedisLockHelper;
 import org.springframework.cache.annotation.EnableCaching;
 import org.springframework.context.annotation.Bean;
@@ -19,7 +20,7 @@ import java.time.Duration;
  */
 @Configuration
 @EnableCaching
-public class RedisBeanConfig {
+public class RedisConfig {
 
     /**
      * Redis缓存的序列化方式使用redisTemplate.getValueSerializer()，不在使用JDK默认的序列化方式
@@ -46,6 +47,11 @@ public class RedisBeanConfig {
     @Bean
     public StringRedisLockHelper stringRedisLockHelper(StringRedisTemplate stringRedisTemplate) {
         return new StringRedisLockHelper(stringRedisTemplate);
+    }
+
+    @Bean
+    public StringRedisFcyHelper stringRedisFcyHelper(StringRedisTemplate stringRedisTemplate) {
+        return new StringRedisFcyHelper(stringRedisTemplate);
     }
 
 }

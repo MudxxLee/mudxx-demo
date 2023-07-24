@@ -21,6 +21,8 @@ public class Hippo4jConfig {
     public ThreadPoolExecutor bizCommonExecutor() {
         String threadPoolId = "biz-redis-common";
         return ThreadPoolBuilder.builder()
+                .corePoolSize(100)
+                .maximumPoolSize(100)
                 .threadFactory(threadPoolId)
                 .threadPoolId(threadPoolId)
                 .dynamicPool()

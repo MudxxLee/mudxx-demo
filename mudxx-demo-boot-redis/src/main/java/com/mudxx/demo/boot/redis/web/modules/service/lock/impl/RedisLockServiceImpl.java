@@ -22,32 +22,33 @@ public class RedisLockServiceImpl implements IRedisLockService {
     @Autowired
     private ThreadPoolExecutor bizCommonExecutor;
 
-    private static final long expireSecond = 20L;
+    private static final long expireSecond = 5L;
     private static final long maxWaitTime = 6L;
-    private static final long retryIntervalMillis = 500L;
+    private static final long retryIntervalMillis = 200L;
 
 //    @PostConstruct
     public void test() {
-        for (int i = 0; i < 20; i++) {
+        for (int i = 0; i < 50; i++) {
             final int randomInt = RandomUtils.getRandomInt(5);
             String lockKey = "my-lock-key-" + randomInt;
             String lockValue = String.valueOf(randomInt);
             int idx = i;
             bizCommonExecutor.submit(() -> {
-                boolean locked = stringRedisLockHelper.tryLock(lockKey, lockValue, expireSecond, maxWaitTime, retryIntervalMillis);
+                boolean locked = stringRedisLockHelper.retryLock(lockKey, lockValue, expireSecond, maxWaitTime, retryIntervalMillis);
                 if (locked) {
                     try {
+                        System.out.println("[i=" + idx + "]" + lockKey + " lock");
                         // 模拟业务逻辑处理
-                        Thread.sleep(20000);
-                        System.out.println("[i=" + idx + "]" + lockKey + " successfully acquired the lock");
+                        Thread.sleep(5000);
                     } catch (InterruptedException e) {
                         Thread.currentThread().interrupt();
                     } finally {
                         stringRedisLockHelper.unLock(lockKey, lockValue);
+                        System.out.println("[i=" + idx + "]" + lockKey + " unLock lock");
                     }
                 } else {
                     // 获取锁失败的处理逻辑
-                    System.out.println("[i=" + idx + "]" + lockKey + " failed to acquire the lock");
+                    System.out.println("[i=" + idx + "]" + lockKey + " failed");
                 }
             });
         }
