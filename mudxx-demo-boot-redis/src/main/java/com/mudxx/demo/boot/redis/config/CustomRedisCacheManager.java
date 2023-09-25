@@ -7,7 +7,6 @@ import org.springframework.data.redis.cache.RedisCacheManager;
 import org.springframework.data.redis.cache.RedisCacheWriter;
 
 import java.time.Duration;
-import java.util.Arrays;
 
 /**
  * @author laiw
@@ -42,6 +41,7 @@ public class CustomRedisCacheManager extends RedisCacheManager {
                 return super.createRedisCache(split[0], cacheConfig.entryTtl(Duration.ofSeconds(cycle)));
             }
         }
+//        return super.createRedisCache(name, cacheConfig.entryTtl(Duration.ofDays(1L)));
         return super.createRedisCache(name, cacheConfig);
     }
 }

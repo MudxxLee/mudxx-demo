@@ -26,7 +26,7 @@ public class RedisCacheServiceImpl implements IRedisCacheService {
     private StringRedisTemplate stringRedisTemplate;
 
 
-    @Cacheable(value = RedisCacheNames.TEST_GET, key = "#id", condition = "#id != null and #id != '' ",unless = "#result == null")
+    @Cacheable(value = RedisCacheNames.TEST_GET, key = "#id", condition = "#id != null and #id != '' ", unless = "#result == null")
     @Override
     public String getEntity(String id) {
         System.out.println("----------执行get");
@@ -50,7 +50,7 @@ public class RedisCacheServiceImpl implements IRedisCacheService {
 
     @Override
     public void set() {
-        redisTemplate.opsForValue().set("test", "test1",  120, TimeUnit.SECONDS);
+        redisTemplate.opsForValue().set("test", "test1", 120, TimeUnit.SECONDS);
     }
 
     @Override
@@ -65,6 +65,7 @@ public class RedisCacheServiceImpl implements IRedisCacheService {
 
     @Override
     public void getStr() {
+        System.out.println("11111");
         System.out.println(stringRedisTemplate.opsForValue().get("test"));
     }
 

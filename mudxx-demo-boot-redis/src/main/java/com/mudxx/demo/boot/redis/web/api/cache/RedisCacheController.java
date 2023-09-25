@@ -1,6 +1,7 @@
 package com.mudxx.demo.boot.redis.web.api.cache;
 
 import com.mudxx.common.web.response.CommonResult;
+import com.mudxx.demo.boot.redis.utils.SpringTest;
 import com.mudxx.demo.boot.redis.web.modules.service.cahce.IRedisCacheService;
 import io.swagger.annotations.Api;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,6 +35,13 @@ public class RedisCacheController {
     @GetMapping("3")
     public CommonResult<?> test3(String id) {
         redisCacheService.deleteEntity(id);
+        return CommonResult.success();
+    }
+
+    @GetMapping("4")
+    public CommonResult<?> test4() {
+        new SpringTest().aVoid();
+        SpringTest.aVoid1();
         return CommonResult.success();
     }
 

@@ -72,7 +72,6 @@ public class RequestFcyAspect {
         boolean never = requestFcy.expireSecond() == -1L;
         // 存到redis中的key
         final String redisKey = this.buildRedisKey(method, requestFcy.suffixKey());
-
         // 轮询尝试(阻塞线程)
         boolean result;
         if (never) {

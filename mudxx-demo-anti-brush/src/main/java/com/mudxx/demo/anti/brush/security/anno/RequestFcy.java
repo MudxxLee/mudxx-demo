@@ -21,7 +21,7 @@ public @interface RequestFcy {
     String suffixKey() default "";
 
     /**
-     * 过期时长(秒，-1L：默认不过期)
+     * 过期时长(秒，-1L：默认不过期，非 -1 时必须 > 0)
      * <p>
      * 推荐：未防止请求线程意外中断（未执行释放），建议设置过期时长
      */
@@ -40,12 +40,12 @@ public @interface RequestFcy {
     /**
      * 轮询重试间隔时间(毫秒)
      * <p>
-     * 推荐：[50~500] 轮询次数[内存8G、CPU4核]： 50_34~36 100_30~33 200_20~22 500_10~12)
+     * 推荐：[50~500] 轮询次数[内存8G、CPU4核]： 50_5~6 100_4~5 200_2~4 500_1~2)
      */
     long retryIntervalMillis();
 
     /**
      * 默认提示信息
      */
-    String msg() default "操作频繁，请稍后再试！";
+    String msg() default "网络繁忙，请稍后再试！";
 }

@@ -16,20 +16,20 @@ import java.util.Arrays;
 public class CustomRedisCacheManager extends RedisCacheManager {
 
     /**
-     * @description 提供默认构造器
      * @param cacheWriter
      * @param defaultCacheConfiguration
      * @return
+     * @description 提供默认构造器
      **/
     public CustomRedisCacheManager(RedisCacheWriter cacheWriter, RedisCacheConfiguration defaultCacheConfiguration) {
         super(cacheWriter, defaultCacheConfiguration);
     }
 
     /**
-     * @description 重写父类createRedisCache方法
-     * @param name @Cacheable中的value
+     * @param name        @Cacheable中的value
      * @param cacheConfig
      * @return org.springframework.data.redis.cache.RedisCache
+     * @description 重写父类createRedisCache方法
      **/
     @Override
     protected RedisCache createRedisCache(String name, RedisCacheConfiguration cacheConfig) {
@@ -43,6 +43,6 @@ public class CustomRedisCacheManager extends RedisCacheManager {
                 return super.createRedisCache(SPEL[0], cacheConfig.entryTtl(Duration.ofSeconds(cycle)));
             }
         }
-        return super.createRedisCache(name, cacheConfig);
+        return super.createRedisCache(name, cacheConfig.entryTtl(Duration.ofDays(1L)));
     }
 }

@@ -1,7 +1,9 @@
 package com.mudxx.demo.boot.redis;
 
+import com.mudxx.demo.boot.redis.utils.SpringContextStaticUtils;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.ConfigurableApplicationContext;
 
 /**
  * @author laiw
@@ -10,6 +12,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication(scanBasePackages = "com.mudxx")
 public class BootApplication {
     public static void main(String[] args) {
-        SpringApplication.run(BootApplication.class, args);
+        ConfigurableApplicationContext applicationContext = SpringApplication.run(BootApplication.class, args);
+        SpringContextStaticUtils.setApplicationContext(applicationContext);
     }
 }

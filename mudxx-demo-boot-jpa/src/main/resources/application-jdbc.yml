@@ -1,0 +1,26 @@
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://rm-gs5q573fvex10s40x.mysql.singapore.rds.aliyuncs.com:3306/payment_system?useUnicode=true&characterEncoding=utf8&allowMultiQueries=true&serverTimezone=UTC&useSSL=false
+    username: agilewingadmin
+    password: fZ1etRWXUpTQk8VEmI
+    hikari:
+      read-only: false
+      connection-timeout: 60000
+      idle-timeout: 60000
+      validation-timeout: 3000
+      max-lifetime: 60000
+      login-timeout: 5
+      maximum-pool-size: 5
+      minimum-idle: 2
+    platform: mysql
+  jpa:
+    show-sql: true
+    open-in-view: false
+    hibernate:
+      ddl-auto: none
+  data:
+    web:
+      pageable:
+        one-indexed-parameters: true
+

@@ -1,0 +1,7 @@
+server:
+  port: 9236
+spring:
+  application:
+    name: demo-boot-jpa
+  profiles:
+    include: jdbc

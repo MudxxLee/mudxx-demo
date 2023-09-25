@@ -13,6 +13,7 @@ import org.springframework.data.redis.connection.RedisConnectionFactory;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.serializer.Jackson2JsonRedisSerializer;
 import org.springframework.data.redis.serializer.RedisSerializationContext;
+import org.springframework.data.redis.serializer.RedisSerializer;
 import org.springframework.data.redis.serializer.StringRedisSerializer;
 
 import java.time.Duration;
@@ -31,6 +32,7 @@ public class RedisConfig {
      * @param factory redis连接工厂
      * @return 返回redis模板对象
      */
+    @Bean
     public RedisTemplate<String, Object> buildRedisTemplate(RedisConnectionFactory factory) {
         RedisTemplate<String, Object> redisTemplate = new RedisTemplate<>();
         redisTemplate.setConnectionFactory(factory);
@@ -74,24 +76,35 @@ public class RedisConfig {
     /**
      * Redis缓存的序列化方式使用redisTemplate.getValueSerializer()，不在使用JDK默认的序列化方式
      *
-     * @param redisTemplate
+     * @param redisConnectionFactory redis连接
      * @return RedisCacheManager
      **/
     @Bean
-    public RedisCacheManager redisCacheManager(RedisTemplate redisTemplate) {
+    public RedisCacheManager redisCacheManager(RedisConnectionFactory redisConnectionFactory) {
         //初始化一个RedisCacheWriter
-        RedisCacheWriter redisCacheWriter = RedisCacheWriter.nonLockingRedisCacheWriter(redisTemplate.getConnectionFactory());
+        RedisCacheWriter redisCacheWriter = RedisCacheWriter.nonLockingRedisCacheWriter(redisConnectionFactory);
 
+        // 创建String和JSON序列化对象，分别对key和value的数据进行类型转换
+        RedisSerializer<String> strSerializer = new StringRedisSerializer();
+        // 设置值（value）的序列化采用Jackson2JsonRedisSerializer
+        Jackson2JsonRedisSerializer<Object> jsonRedisSerializer = new Jackson2JsonRedisSerializer<>(Object.class);
+        // 获取ObjectMapper对象
+        ObjectMapper objectMapper = this.createObjectMapping();
+        // 设置objectMapper属性
+        jsonRedisSerializer.setObjectMapper(objectMapper);
+
+        // 自定义缓存数据序列化方式和有效期限
         RedisCacheConfiguration redisCacheConfiguration = RedisCacheConfiguration.defaultCacheConfig()
-                // 若返回值为null，则不允许存储到Cache中
-                .disableCachingNullValues()
-                .serializeValuesWith(RedisSerializationContext.SerializationPair.fromSerializer(redisTemplate.getValueSerializer()));
+                // 设置缓存有效期为1天
+                .entryTtl(Duration.ofDays(1))
+                // 使用strSerializer对key进行数据类型转换
+                .serializeKeysWith(RedisSerializationContext.SerializationPair.fromSerializer(strSerializer))
+                // 使用jsonRedisSerializer对value的数据类型进行转换
+                .serializeValuesWith(RedisSerializationContext.SerializationPair.fromSerializer(jsonRedisSerializer))
+                // 对空数据不操作
+                .disableCachingNullValues();
 
-        //设置默认过期时间是300秒
-        redisCacheConfiguration.entryTtl(Duration.ofSeconds(300));
-
-        RedisCacheManager redisCacheManager = new CustomRedisCacheManager(redisCacheWriter, redisCacheConfiguration);
-        return redisCacheManager;
+        return new CustomRedisCacheManager(redisCacheWriter, redisCacheConfiguration);
     }
 
 }

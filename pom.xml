@@ -25,6 +25,7 @@
         <module>mudxx-demo-boot-generator-plus</module>
         <module>mudxx-demo-mq-rabbitmq</module>
         <module>mudxx-demo-boot-redis</module>
+        <module>mudxx-demo-boot-jpa</module>
     </modules>
 
     <properties>
