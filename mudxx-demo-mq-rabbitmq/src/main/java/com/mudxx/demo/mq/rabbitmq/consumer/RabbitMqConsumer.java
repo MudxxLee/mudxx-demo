@@ -44,5 +44,16 @@ public class RabbitMqConsumer {
         channel.basicAck(message.getMessageProperties().getDeliveryTag(), false);
     }
 
+//    @RabbitListener(queues = "Agilewing-LR-POC")
+    public void handler3(com.rabbitmq.client.Channel channel, org.springframework.amqp.core.Message message) throws Exception {
+        String jsonStr = new String(message.getBody(), StandardCharsets.UTF_8);
+        System.out.println("receive test msg -> time: " + DateUtil.format(new Date(), DatePattern.NORM_DATETIME_PATTERN) + ", body:" + jsonStr);
+        // 拒绝消息
+        channel.basicReject(message.getMessageProperties().getDeliveryTag(), false);
+        System.out.println("111111111");
+        // 手动确认
+        channel.basicAck(message.getMessageProperties().getDeliveryTag(), false);
+        System.out.println("22222222");
+    }
 
 }

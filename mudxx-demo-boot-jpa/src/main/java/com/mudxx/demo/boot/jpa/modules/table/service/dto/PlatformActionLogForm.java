@@ -1,4 +1,4 @@
-package com.mudxx.demo.boot.jpa.modules.table.dto;
+package com.mudxx.demo.boot.jpa.modules.table.service.dto;
 
 import java.io.Serializable;
 import java.util.Date;

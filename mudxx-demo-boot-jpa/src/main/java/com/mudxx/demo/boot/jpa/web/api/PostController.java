@@ -2,10 +2,9 @@ package com.mudxx.demo.boot.jpa.web.api;
 
 import com.mudxx.demo.boot.jpa.web.vo.FileVO;
 import org.springframework.http.MediaType;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.Map;
 
 
 @RequestMapping("/api/post")
@@ -78,5 +77,10 @@ public class PostController {
 
         // 处理业务逻辑
         return "/okhttp3/post/json SUCCESS!";
+    }
+
+    @PostMapping("/test")
+    public void test(@RequestBody Map<String, Object> param) {
+        System.out.println(param);
     }
 }

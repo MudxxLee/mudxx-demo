@@ -4,4 +4,11 @@ spring:
   application:
     name: demo-boot-jpa
   profiles:
-    include: jdbc
+    include: jdbc,redis
+
+security:
+  max-seconds: 3000
+#  redis-key: TEST:TTT
+#  header-timestamp: X-1
+#  header-sign: X-2
+#  header-nonce: X-3

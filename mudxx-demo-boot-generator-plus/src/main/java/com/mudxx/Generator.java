@@ -22,9 +22,13 @@ public class Generator {
     /**
      * 数据库连接字段配置
      */
-    private static final String JDBC_URL = "jdbc:mysql://120.26.37.73:3306/mudxx-mall-learning?useUnicode=true&characterEncoding=utf-8";
-    private static final String JDBC_USER_NAME = "root";
-    private static final String JDBC_PASSWORD = "alimysql123456";
+//    private static final String JDBC_URL = "jdbc:mysql://120.26.37.73:3306/mudxx-mall-learning?useUnicode=true&characterEncoding=utf-8";
+//    private static final String JDBC_USER_NAME = "root";
+//    private static final String JDBC_PASSWORD = "alimysql123456";
+
+    private static final String JDBC_URL = "jdbc:mysql://rm-gs5q573fvex10s40x.mysql.singapore.rds.aliyuncs.com:3306/payment_system?useUnicode=true&characterEncoding=utf8&allowMultiQueries=true&serverTimezone=UTC&useSSL=false";
+    private static final String JDBC_USER_NAME = "agilewingadmin";
+    private static final String JDBC_PASSWORD = "fZ1etRWXUpTQk8VEmI";
 
     /**
      * 包名和模块名
@@ -35,12 +39,12 @@ public class Generator {
     /**
      * 表名,多个表使用英文逗号分割
      */
-    private static final String[] TBL_NAMES = {"agw_account"};
+    private static final String[] TBL_NAMES = {"tb_test_order"};
 
     /**
      * 表名的前缀,从表生成代码时会去掉前缀
      */
-    private static final String TABLE_PREFIX = "tbl_";
+    private static final String TABLE_PREFIX = "tb_";
 
 
     public static void main(String[] args) {

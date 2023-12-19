@@ -18,6 +18,17 @@
     </properties>
 
     <dependencies>
+        <dependency>
+            <groupId>com.mudxx.component</groupId>
+            <artifactId>mudxx-component-redis</artifactId>
+            <version>${mudxx.core.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.mudxx.common</groupId>
+            <artifactId>mudxx-common-web-security</artifactId>
+            <version>${mudxx.core.version}</version>
+        </dependency>
+
         <!--mysql-->
         <dependency>
             <groupId>mysql</groupId>

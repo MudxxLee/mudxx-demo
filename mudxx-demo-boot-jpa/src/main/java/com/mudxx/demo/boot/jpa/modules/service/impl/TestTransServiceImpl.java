@@ -6,7 +6,7 @@ import com.mudxx.demo.boot.jpa.modules.service.ITestTransDef3Service;
 import com.mudxx.demo.boot.jpa.modules.service.ITestTransDefService;
 import com.mudxx.demo.boot.jpa.modules.service.ITestTransService;
 import com.mudxx.demo.boot.jpa.modules.table.dao.PlatformActionLog;
-import com.mudxx.demo.boot.jpa.modules.table.dto.PlatformActionLogForm;
+import com.mudxx.demo.boot.jpa.modules.table.service.dto.PlatformActionLogForm;
 import com.mudxx.demo.boot.jpa.modules.table.service.IPlatformActionLogService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

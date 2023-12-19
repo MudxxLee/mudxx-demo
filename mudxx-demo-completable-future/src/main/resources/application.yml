@@ -1,0 +1,7 @@
+server:
+  port: 9238
+spring:
+  application:
+    name: demo-boot-completablefuture
+  profiles:
+    include:

@@ -1,7 +1,8 @@
 spring:
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://rm-gs5q573fvex10s40x.mysql.singapore.rds.aliyuncs.com:3306/payment_system?useUnicode=true&characterEncoding=utf8&allowMultiQueries=true&serverTimezone=UTC&useSSL=false
+#    url: jdbc:mysql://rm-gs5q573fvex10s40x.mysql.singapore.rds.aliyuncs.com:3306/payment_system?useUnicode=true&characterEncoding=utf8&allowMultiQueries=true&serverTimezone=UTC&useSSL=false
+    url: jdbc:mysql://rm-gs5q573fvex10s40x.mysql.singapore.rds.aliyuncs.com:3306/tmp?useUnicode=true&characterEncoding=utf8&allowMultiQueries=true&serverTimezone=UTC&useSSL=false
     username: agilewingadmin
     password: fZ1etRWXUpTQk8VEmI
     hikari:

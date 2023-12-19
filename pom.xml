@@ -26,6 +26,9 @@
         <module>mudxx-demo-mq-rabbitmq</module>
         <module>mudxx-demo-boot-redis</module>
         <module>mudxx-demo-boot-jpa</module>
+        <module>mudxx-demo-completable-future</module>
+        <module>mudxx-demo-boot-statemachine</module>
+        <module>mudxx-demo-web-stream</module>
     </modules>
 
     <properties>

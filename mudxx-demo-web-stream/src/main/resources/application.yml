@@ -1,0 +1,11 @@
+server:
+  port: 9238
+  tomcat:
+    uri-encoding: utf-8
+  servlet:
+    encoding:
+      charset: UTF-8
+      force: true
+spring:
+  application:
+    name: demo-boot-web-stream
