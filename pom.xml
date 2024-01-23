@@ -29,6 +29,7 @@
         <module>mudxx-demo-completable-future</module>
         <module>mudxx-demo-boot-statemachine</module>
         <module>mudxx-demo-web-stream</module>
+        <module>mudxx-demo-boot-page</module>
     </modules>
 
     <properties>

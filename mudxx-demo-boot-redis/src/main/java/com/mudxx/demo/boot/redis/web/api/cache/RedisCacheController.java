@@ -3,11 +3,13 @@ package com.mudxx.demo.boot.redis.web.api.cache;
 import com.mudxx.common.web.response.CommonResult;
 import com.mudxx.demo.boot.redis.utils.SpringTest;
 import com.mudxx.demo.boot.redis.web.modules.service.cahce.IRedisCacheService;
+import com.mudxx.demo.boot.redis.web.modules.service.gen.IGeneratorService;
 import io.swagger.annotations.Api;
+import org.apache.commons.collections.MapUtils;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.Map;
 
 /**
  * @author laiw
@@ -20,6 +22,8 @@ public class RedisCacheController {
 
     @Autowired
     private IRedisCacheService redisCacheService;
+    @Autowired
+    private IGeneratorService generatorService;
 
     @GetMapping("1")
     public CommonResult<?> test1(String id) {
@@ -67,5 +71,16 @@ public class RedisCacheController {
     public CommonResult<?> gets() {
         redisCacheService.getStr();
         return CommonResult.success();
+    }
+
+    @PostMapping("gen")
+    public CommonResult<?> gen(@RequestBody Map<String, Object> body) {
+        String uniqueNo = generatorService.genAndIncrUniqueNo(
+                MapUtils.getString(body, "bizPrefix"),
+                MapUtils.getString(body, "bizCondition"),
+                MapUtils.getInteger(body, "bizSuffixLength"),
+                MapUtils.getString(body, "bizSuffixPadStr")
+        );
+        return CommonResult.success(uniqueNo);
     }
 }

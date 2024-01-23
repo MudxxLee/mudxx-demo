@@ -5,6 +5,7 @@ import com.fasterxml.jackson.annotation.PropertyAccessor;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.mudxx.component.redis.lock.spring.StringRedisFcyHelper;
 import com.mudxx.component.redis.lock.spring.StringRedisLockHelper;
+import com.mudxx.component.redis.utils.StringRedisUtils;
 import org.springframework.cache.annotation.EnableCaching;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -86,4 +87,8 @@ public class RedisConfig {
         return new StringRedisFcyHelper(stringRedisTemplate);
     }
 
+    @Bean
+    public StringRedisUtils getStringRedisUtils(StringRedisTemplate stringRedisTemplate) {
+        return new StringRedisUtils(stringRedisTemplate);
+    }
 }

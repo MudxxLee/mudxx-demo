@@ -83,4 +83,10 @@ public class PostController {
     public void test(@RequestBody Map<String, Object> param) {
         System.out.println(param);
     }
+
+    @PostMapping("/test1")
+    public String test1(@RequestBody Map<String, Object> param) {
+        System.out.println(param);
+        return "success";
+    }
 }

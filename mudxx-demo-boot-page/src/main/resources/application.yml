@@ -1,0 +1,9 @@
+server:
+  port: 9240
+spring:
+  application:
+    name: demo-boot-page
+  profiles:
+    include:
+  thymeleaf:
+    prefix: classpath:/templates/
