@@ -8,4 +8,6 @@ public interface ITestTransDef3Service {
 
     void test5(Long id, String uri);
 
+    void test6(Long id);
+
 }

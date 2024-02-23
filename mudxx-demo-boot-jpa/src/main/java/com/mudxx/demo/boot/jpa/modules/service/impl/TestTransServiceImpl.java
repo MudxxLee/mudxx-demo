@@ -60,19 +60,28 @@ public class TestTransServiceImpl implements ITestTransService {
 //        int i = 1 / 0;
     }
 
-//    @Transactional(rollbackOn = Exception.class)
+    @Transactional(rollbackOn = Exception.class)
     @Override
     public void test003() {
         PlatformActionLog log = platformActionLogService.findById(6639L);
         System.out.println("11: " + JSONUtil.toJsonStr(log));
-        testTransDef3Service.test4(log.getId(), "test-" + System.currentTimeMillis());
-        log = platformActionLogService.findById(log.getId());
-        System.out.println("44: " + JSONUtil.toJsonStr(log));
-        this.aVoid();
+//        testTransDef3Service.test4(log.getId(), "test-" + System.currentTimeMillis());
+//        log = platformActionLogService.findById(log.getId());
+//        System.out.println("44: " + JSONUtil.toJsonStr(log));
+//        this.aVoid();
+//        this.bVoid();
+
+//        testTransDef3Service.test6(log.getId());
     }
 
     private void aVoid() {
         PlatformActionLog log = platformActionLogService.findById(6639L);
         System.out.println("55: " + JSONUtil.toJsonStr(log));
+    }
+
+    @Transactional(rollbackOn = Exception.class)
+    public void bVoid() {
+        PlatformActionLog log = platformActionLogService.findById(6639L);
+        System.out.println("66: " + JSONUtil.toJsonStr(log));
     }
 }

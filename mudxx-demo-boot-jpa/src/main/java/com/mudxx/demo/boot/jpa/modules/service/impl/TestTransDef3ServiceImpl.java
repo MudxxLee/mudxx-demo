@@ -4,8 +4,8 @@ import cn.hutool.core.util.IdUtil;
 import cn.hutool.json.JSONUtil;
 import com.mudxx.demo.boot.jpa.modules.service.ITestTransDef3Service;
 import com.mudxx.demo.boot.jpa.modules.table.dao.PlatformActionLog;
-import com.mudxx.demo.boot.jpa.modules.table.service.dto.PlatformActionLogForm;
 import com.mudxx.demo.boot.jpa.modules.table.service.IPlatformActionLogService;
+import com.mudxx.demo.boot.jpa.modules.table.service.dto.PlatformActionLogForm;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -58,5 +58,12 @@ public class TestTransDef3ServiceImpl implements ITestTransDef3Service {
         platformActionLogService.update(id, uri);
     }
 
-
+//
+//    @Transactional(rollbackOn = Exception.class)
+    @Transactional(rollbackOn = Exception.class, value = Transactional.TxType.REQUIRES_NEW)
+    @Override
+    public void test6(Long id) {
+        PlatformActionLog log = platformActionLogService.findById(id);
+        System.out.println("77: " + JSONUtil.toJsonStr(log));
+    }
 }

@@ -25,7 +25,7 @@ public class InitializeConfig {
     @Autowired
     private ISysDictDataService sysDictDataService;
 
-    @PostConstruct
+//    @PostConstruct
     public void initDict() {
         Map<String, List<SysDictDataGroupModel>> map = sysDictDataService.findAllUsableGroupData();
         Map<String, String> maps = new HashMap<>();
